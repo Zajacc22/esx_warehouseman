@@ -197,7 +197,7 @@ Citizen.CreateThread(function()
 			local coords      = GetEntityCoords(GetPlayerPed(-1))
 			local isInMarker  = false
 			local currentZone = nil
-                        local zaplata = 0
+                        local pay = 0
 				if(GetDistanceBetweenCoords(coords, 995.45, -3109.13, -39.91, true) < 3.0)   then
 					isInMarker  = true
 					currentZone = 'wezkarton'
@@ -209,14 +209,14 @@ Citizen.CreateThread(function()
 				if(GetDistanceBetweenCoords(coords, coordx, coordy, coordz, true) < 3.0) and namezone ~= 'Delivery' and IsControlJustReleased(0, Keys['E']) then
 					isInMarker  = true
 					currentZone = 'odlozkarton'
-                                          zaplata = math.random(35, 54)                                       
+                                          pay = math.random(35, 54)                                       
                   TriggerServerEvent('magazynier:odkladanie', (GetPlayerPed(-1)))
                    TriggerEvent('magazynier:freezePlayer', true)
                                          Citizen.Wait(2500)
                                        TriggerEvent('magazynier:freezePlayer', false)
                                        
-                                         TriggerServerEvent('magazynier:zaplac', zaplata)
-                                     ShowNotification("~g~Zarobiles ~b~$"..zaplata)
+                                         TriggerServerEvent('magazynier:zaplac', pay)
+                                     ShowNotification("~g~Zarobiles ~b~$"..pay)
                                           ustaw = false
 				end
 			
